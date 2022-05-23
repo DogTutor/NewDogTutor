@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class lidiaCursorController : MonoBehaviour
+public class CursorController : MonoBehaviour
 {
     private InteractiveLidiaCursorControls controls;
 
     [SerializeField]
-    private interactablesManager interactablesManager;
+    private InteractablesManager interactablesManager;
 
     [SerializeField]
     private Texture2D interactiveCursorTexture;
@@ -24,28 +25,26 @@ public class lidiaCursorController : MonoBehaviour
 
     public float DistanceThreshold;
 
-
     void Awake()
     {
         controls = new InteractiveLidiaCursorControls();
         controls.Mouse.Click.started += _ => StartedClick();
         controls.Mouse.Click.performed += _ => EndedClick();
         MakeCursorDefault += DefaultCursorTexture;
-        MakeCursorInteractive += interactiveCursorTexture; 
-
+        MakeCursorInteractive += InteractiveCursorTexture;
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         controls.Enable();
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         controls.Disable();
     }
 
-    void Update()
+    private void Update()
     {
         FindInteractableWithinDistanceThreshold();
     }
@@ -54,8 +53,9 @@ public class lidiaCursorController : MonoBehaviour
     {
         newSelectionTransform = null;
 
-        for (int itemIndex = 0; 
-            itemIndex < interactablesManager.Interactables.Count; itemIndex++)
+        for (int itemIndex = 0;
+            itemIndex < interactablesManager.Interactables.Count;
+            itemIndex++)
         {
             Vector3 fromMouseToInteractableOffset =
                 interactablesManager.Interactables[itemIndex].position
@@ -67,12 +67,16 @@ public class lidiaCursorController : MonoBehaviour
 
             if (sqrMag < DistanceThreshold * DistanceThreshold)
             {
-                newSelectionTransform =
+                //Debug.Log("Distance " +
+                //Vector3.Distance
+                //(controls.Mouse.Position.ReadValue<Vector2>(),
+                //interactables[i].position));
+                newSelectionTransform = 
                     interactablesManager.Interactables[itemIndex].transform;
 
                 if (cursorIsInteractive == false)
                 {
-                    interactiveCursorTexture();
+                    InteractiveCursorTexture();
                 }
                 break;
             }
@@ -89,7 +93,7 @@ public class lidiaCursorController : MonoBehaviour
     {
         cursorIsInteractive = true;
         Vector2 hotspot = new Vector2
-            (interactiveCursorTexture.with / 2, 0);
+            (interactiveCursorTexture.width / 2, 0);
         Cursor.SetCursor(interactiveCursorTexture, hotspot, CursorMode.Auto);
     }
 
@@ -113,10 +117,10 @@ public class lidiaCursorController : MonoBehaviour
     {
         if (newSelectionTransform != null)
         {
-            IInteractable interactable = 
-            newSelectionTransform.gameObject.GetComponent<IInteractable>();
-        if (interactable != null){ interactable.OnClickAction(); }
-        newSelectionTransform = null;
+            IInteractable interactable =
+                newSelectionTransform.gameObject.GetComponent<IInteractable>();
+            if(interactable != null) { interactable.OnClickAction(); }
+            newSelectionTransform = null;
         }
     }
 }

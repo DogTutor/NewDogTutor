@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class lidiaInteractionManager : MonoBehaviour
+public class InteractablesManager : MonoBehaviour
 {
     [SerializeField]
     private List<Transform> interactables;
 
-    public List<Transform> Interactables{
+    public List<Transform> Interactables
+    {
         get => interactables;
     }
 
@@ -23,11 +24,13 @@ public class lidiaInteractionManager : MonoBehaviour
         RemoveFromInteractablesEvent += RemoveFromListOfInteractables;
     }
 
-    private void AddToListOfInteractables(Transform transformToAddToList){
+    private void AddToListOfInteractables(Transform transformToAddToList)
+    {
         interactables.Add(transformToAddToList);
     }
 
-    private void RemoveFromListOfInteractables(Transform transformToRemoveFromList){
+    private void RemoveFromListOfInteractables(Transform transformToRemoveFromList)
+    {
         interactables.Remove(transformToRemoveFromList);
     }
     // Start is called before the first frame update
@@ -35,7 +38,7 @@ public class lidiaInteractionManager : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        
+        AllChildrenWorldToScreenPoint();
     }
 
     private void AllChildrenWorldToScreenPoint()
@@ -48,11 +51,4 @@ public class lidiaInteractionManager : MonoBehaviour
                 transform.GetChild(i).localScale = Vector3.one * 100;            
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }
