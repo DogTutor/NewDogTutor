@@ -17,26 +17,17 @@ public class TestCollider : MonoBehaviour
      void Update()
  {
      if (Input.GetMouseButtonDown(0))
-     {
-         Debug.Log("Mouse is down");
-         
+     {         
          RaycastHit hitInfo = new RaycastHit();
          bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
          if (hit) 
          {
              Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-             if (hitInfo.transform.gameObject.tag == "Construction")
+             if (hitInfo.transform.gameObject.name == "InteractableClock")
              {
-                 Debug.Log ("It's working!");
-                 
                  OnClickedClock();
-             } else {
-                 Debug.Log ("nopz");
-             }
-         } else {
-             Debug.Log("No hit");
-         }
-         Debug.Log("Mouse is down");
+             } 
+         } 
      } 
  }
 }
