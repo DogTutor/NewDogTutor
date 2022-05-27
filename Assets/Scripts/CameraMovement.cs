@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public GameObject Canvas;
     private Vector3 endPosition;
     private Vector3 startPosition;
     private float desiredDuration = 2f;
@@ -12,6 +11,8 @@ public class CameraMovement : MonoBehaviour
 
     [SerializeField]
     private AnimationCurve curve;
+    [SerializeField] private float flagScene = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,9 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
 
-        elapsedTime += Time.deltaTime;
+        if (flagScene == 1)
+        {
+            elapsedTime += Time.deltaTime;
         float percentageComplete = elapsedTime / desiredDuration;
 
         transform.position = Vector3.Lerp(startPosition, endPosition, curve.Evaluate(percentageComplete));        
@@ -71,6 +74,6 @@ public class CameraMovement : MonoBehaviour
             startPosition = new Vector3(30,0,0);
             endPosition = new Vector3(20,0,0);
         } 
-        
+        }
     }
 }
