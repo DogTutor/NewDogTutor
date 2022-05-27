@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    public GameObject Canvas;
     private Vector3 endPosition;
     private Vector3 startPosition;
     private float desiredDuration = 2f;
@@ -20,6 +21,12 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0)){
+            Canvas.SetActive (!Canvas.activeSelf);
+            startPosition = new Vector3(40,0,0);
+            endPosition = new Vector3(0,0,0);
+        }
+
         elapsedTime += Time.deltaTime;
         float percentageComplete = elapsedTime / desiredDuration;
 
@@ -68,6 +75,10 @@ public class CameraMovement : MonoBehaviour
         {
             startPosition = new Vector3(30,0,0);
             endPosition = new Vector3(20,0,0);
+        } 
+        else 
+        {
+            endPosition = transform.position;
         }
     }
 }
