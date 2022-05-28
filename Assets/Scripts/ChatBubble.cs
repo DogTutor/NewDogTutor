@@ -6,10 +6,11 @@ using TMPro;
 
 public class ChatBubble : MonoBehaviour
 {
-    public static void Create(Transform parent, Vector3 localPosition, string text)
+    
+    public static void Create(string text)
     {
-        Transform chatBubbleTransform = Instantiate(GameAssets.i.pfChatBubble, parent);
-        chatBubbleTransform.localPosition = localPosition;
+        Transform chatBubbleTransform = Instantiate(GameAssets.i.pfChatBubble, FindObjectOfType<Canvas>().transform);
+        //chatBubbleTransform.localPosition = localPosition;
 
         chatBubbleTransform.GetComponent<ChatBubble>().Setup(text);
     }
@@ -27,7 +28,7 @@ public class ChatBubble : MonoBehaviour
         Setup("Hello World! Hello World! Hello World!");
     }
 
-    private void Setup(string text)
+    public void Setup(string text)
     {
         textMeshPro.text = text;
         textMeshPro.ForceMeshUpdate();
