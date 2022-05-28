@@ -25,7 +25,7 @@ public class ChatBubble : MonoBehaviour
 
     private void Start()
     {
-        Setup("Hello World! Hello World! Hello World!");
+        //Setup("Hello World! Hello World! Hello World!");
     }
 
     public void Setup(string text)
