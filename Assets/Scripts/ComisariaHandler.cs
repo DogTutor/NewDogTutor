@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ComisariaHandler : MonoBehaviour
 {
+    [SerializeField]
+    private PlayableDirector house;
+    [SerializeField]
+    private StoryCinematicDirector director;
     public GameObject bubbleUi;
     private GameObject bubbleUse;
     private Vector3 localPosition = new Vector3 (-0.7f,1.6f);
@@ -41,7 +46,7 @@ public class ComisariaHandler : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Space) && key == 3)
         {
             Destroy(bubbleUse);
-
+            director.PlayCinematic(house);
         }
     }
 
