@@ -7,16 +7,16 @@ public class InteractableClock : MonoBehaviour
 
     void OnEnable()
     {
-        TestCollider.OnClickedClock += Clock;
+        //TestCollider.OnClickedClock += Clock;
     }
 
     void OnDisable()
     {
-        TestCollider.OnClickedClock -= Clock;
+        //TestCollider.OnClickedClock -= Clock;
     }
 
     void Clock()
     {
-        Debug.Log("Reloj Activado");
+        
     }
 }
