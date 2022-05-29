@@ -11,6 +11,8 @@ public class ComisariaHandler : MonoBehaviour
     [SerializeField] private Transform inspectorTransform;
     [SerializeField] private Transform felixTransform;
     [SerializeField] private GameObject tutorial;
+
+    private float key = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -20,16 +22,26 @@ public class ComisariaHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && key == 0)
         {
             Destroy(bubbleUse);
             Destroy(tutorial);
             bubble(inspectorTransform, "Es Lidia Acosta, ¿Qué ocurrió?");
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Destroy(bubbleUse);
-                bubble(lidiaTransform, "Han entrado a mi casa y me han robado mis joyas");
-            }
+            key++;
+        } else if (Input.GetKeyDown(KeyCode.Space) && key == 1)
+        {
+            Destroy(bubbleUse);
+            bubble(lidiaTransform, "Han entrado a mi casa y me han robado mis joyas");
+            key++;
+        } else if (Input.GetKeyDown(KeyCode.Space) && key == 2)
+        {
+            Destroy(bubbleUse);
+            bubble(felixTransform, "No se preocupe, ¡nosotros nos encargaremos!");
+            key++;
+        } else if (Input.GetKeyDown(KeyCode.Space) && key == 3)
+        {
+            Destroy(bubbleUse);
+
         }
     }
 
