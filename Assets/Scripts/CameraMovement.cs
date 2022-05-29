@@ -6,12 +6,12 @@ public class CameraMovement : MonoBehaviour
 {
     private Vector3 endPosition;
     private Vector3 startPosition;
-    private float desiredDuration = 2f;
+    private float desiredDuration = 5f;
     private float elapsedTime;
 
     [SerializeField]
     private AnimationCurve curve;
-    [SerializeField] private float flagScene = 0;
+    public float flagScene = 0;
 
     // Start is called before the first frame update
     void Start()
