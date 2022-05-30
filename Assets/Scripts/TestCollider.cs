@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class TestCollider : MonoBehaviour
 {
+    [SerializeField]
+    private PlayableDirector ardillaTime;
+    [SerializeField]
+    private StoryCinematicDirector director;
     // Variables Flag
     private float relojFlag = 0;
     private float saveFlag = 0;
@@ -77,7 +82,8 @@ public class TestCollider : MonoBehaviour
              {
                  bubble(kikiTransform,"¡Claro!, ardilla sube y mira que encuentras");
                  ardillaFlag = 1;
-             }
+                 director.PlayCinematic(ardillaTime);
+             }  
          } 
      } 
  }
@@ -87,6 +93,6 @@ public class TestCollider : MonoBehaviour
         bubbleUse = Instantiate(bubbleUi, FindObjectOfType<Canvas>().transform);
         bubbleUse.transform.position = Camera.main.WorldToScreenPoint(charTransform.position+localPosition);
         bubbleUse.GetComponent<ChatBubble>().Setup(text);
-        Destroy(bubbleUse.gameObject, 8f);
+        Destroy(bubbleUse.gameObject, 6f);
     }
 }
