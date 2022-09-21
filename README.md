@@ -5,3 +5,4 @@ Este proyecto está siendo desarrollado por:
 - Juan Jose Melendez Bolaños
 - Nicolas Alexander Diaz Martinez
 - Andrea Lucia Pérez Marquinez
+- Cjay Zambrano Liñan
