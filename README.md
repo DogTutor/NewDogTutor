@@ -6,3 +6,4 @@ Este proyecto está siendo desarrollado por:
 - Nicolas Alexander Diaz Martinez
 - Andrea Lucia Pérez Marquinez
 - Cjay Zambrano Liñan
+- Daniel Maya
