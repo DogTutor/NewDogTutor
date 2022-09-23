@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
   private Vector3 endPosition;
   private Vector3 startPosition;
-  private float desiredDuration = 5f;
+  private float desiredDuration = 1f;
   private float elapsedTime;
 
   [SerializeField]
@@ -31,52 +31,52 @@ public class CameraMovement : MonoBehaviour
       transform.position = Vector3.Lerp(startPosition, endPosition, curve.Evaluate(percentageComplete));
 
       // Sala
-      if (transform.position.x == 0 && Input.GetKeyDown(KeyCode.RightArrow))
+      if (transform.position.z == 0 && Input.GetKeyDown(KeyCode.RightArrow))
       {
         startPosition = new Vector3(0, 0, 0);
-        endPosition = new Vector3(10, 0, 0);
+        endPosition = new Vector3(0, 0, -30);
 
       }
-      else if (transform.position.x == 0 && Input.GetKeyDown(KeyCode.LeftArrow))
+      else if (transform.position.z == 0 && Input.GetKeyDown(KeyCode.LeftArrow))
       {
         startPosition = new Vector3(0, 0, 0);
-        endPosition = new Vector3(30, 0, 0);
+        endPosition = new Vector3(0, 0, -90);
       }
 
-      // Estudio
-      if (transform.position.x == 10 && Input.GetKeyDown(KeyCode.RightArrow))
+      // Cocina
+      if (transform.position.z == -30 && Input.GetKeyDown(KeyCode.RightArrow))
       {
-        startPosition = new Vector3(10, 0, 0);
-        endPosition = new Vector3(20, 0, 0);
+        startPosition = new Vector3(0, 0, -30);
+        endPosition = new Vector3(0, 0, -60);
       }
-      else if (transform.position.x == 10 && Input.GetKeyDown(KeyCode.LeftArrow))
+      else if (transform.position.z == -30 && Input.GetKeyDown(KeyCode.LeftArrow))
       {
-        startPosition = new Vector3(10, 0, 0);
+        startPosition = new Vector3(0, 0, -30);
         endPosition = new Vector3(0, 0, 0);
       }
 
       // Cocina
-      if (transform.position.x == 20 && Input.GetKeyDown(KeyCode.RightArrow))
+      if (transform.position.z == -60 && Input.GetKeyDown(KeyCode.RightArrow))
       {
-        startPosition = new Vector3(20, 0, 0);
-        endPosition = new Vector3(30, 0, 0);
+        startPosition = new Vector3(0, 0, -60);
+        endPosition = new Vector3(0, 0, -90);
       }
-      else if (transform.position.x == 20 && Input.GetKeyDown(KeyCode.LeftArrow))
+      else if (transform.position.z == -60 && Input.GetKeyDown(KeyCode.LeftArrow))
       {
-        startPosition = new Vector3(20, 0, 0);
-        endPosition = new Vector3(10, 0, 0);
+        startPosition = new Vector3(0, 0, -60);
+        endPosition = new Vector3(0, 0, -30);
       }
 
       // Habitacion
-      if (transform.position.x == 30 && Input.GetKeyDown(KeyCode.RightArrow))
+      if (transform.position.z == -90 && Input.GetKeyDown(KeyCode.RightArrow))
       {
-        startPosition = new Vector3(30, 0, 0);
+        startPosition = new Vector3(0, 0, -90);
         endPosition = new Vector3(0, 0, 0);
       }
-      else if (transform.position.x == 30 && Input.GetKeyDown(KeyCode.LeftArrow))
+      else if (transform.position.z == -90 && Input.GetKeyDown(KeyCode.LeftArrow))
       {
-        startPosition = new Vector3(30, 0, 0);
-        endPosition = new Vector3(20, 0, 0);
+        startPosition = new Vector3(0, 0, -90);
+        endPosition = new Vector3(0, 0, -60);
       }
     }
   }
