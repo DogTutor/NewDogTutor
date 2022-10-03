@@ -1,0 +1,54 @@
+{
+    "name": "InteractiveLidiaCursorControls",
+    "maps": [
+        {
+            "name": "Mouse",
+            "id": "0e60d12e-6789-4643-abdd-a77b71bf2eb1",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "213894e9-644f-4b6f-b925-32e026912fb4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "e96cf8d9-1d40-45cf-8b7b-5860d3f76b48",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "404aed38-6eed-4738-a6e6-b2c55f9d3dad",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38c973ec-ed22-44fb-8e3c-7de2fca3114c",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
