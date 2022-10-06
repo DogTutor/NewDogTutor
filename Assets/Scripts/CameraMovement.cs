@@ -12,6 +12,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private AnimationCurve curve;
     public float flagScene = 0;
+    public Animator lidAnim;
+    public Animator felAnim;
+    public Animator adelAnim;
+    public Animator kikiAnim;
+    public Animator rolloAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +27,16 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(flagScene);
 
         if (flagScene == 1)
         {
+            lidAnim.SetBool("House", true);
+            adelAnim.SetBool("House", true);
+            felAnim.SetBool("House", true);
+            rolloAnim.SetBool("House", true);
+            kikiAnim.SetBool("House", true);
+
             elapsedTime += Time.deltaTime;
         float percentageComplete = elapsedTime / desiredDuration;
 
