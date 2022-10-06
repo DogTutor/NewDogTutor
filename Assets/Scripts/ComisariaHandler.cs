@@ -18,6 +18,10 @@ public class ComisariaHandler : MonoBehaviour
     [SerializeField] private GameObject tutorial;
 
     private float key = 0;
+
+    public Animator felAnim;
+    public Animator polAnim;
+    public Animator lidAnim;
     
     // Start is called before the first frame update
     void Start()
@@ -32,19 +36,23 @@ public class ComisariaHandler : MonoBehaviour
             Destroy(bubbleUse);
             Destroy(tutorial);
             bubble(inspectorTransform, "Es Lidia Acosta, ¿Qué ocurrió?");
+            polAnim.SetBool("Speak", true);
             key++;
         } else if (Input.GetKeyDown(KeyCode.Space) && key == 1)
         {
             Destroy(bubbleUse);
             bubble(lidiaTransform, "Han entrado a mi casa y me han robado mis joyas");
             key++;
+            polAnim.SetBool("Speak", false);
         } else if (Input.GetKeyDown(KeyCode.Space) && key == 2)
         {
             Destroy(bubbleUse);
             bubble(felixTransform, "No se preocupe, ¡nosotros nos encargaremos!");
             key++;
+            felAnim.SetBool("Speak", true);
         } else if (Input.GetKeyDown(KeyCode.Space) && key == 3)
         {
+            felAnim.SetBool("Speak", false);
             Destroy(bubbleUse);
             director.PlayCinematic(house);
         }
