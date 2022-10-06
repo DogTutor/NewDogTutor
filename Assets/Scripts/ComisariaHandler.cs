@@ -41,7 +41,7 @@ public class ComisariaHandler : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Space) && key == 1)
         {
             Destroy(bubbleUse);
-            bubble(lidiaTransform, "Han entrado a mi casa y me han robado mis joyas");
+            bubble(lidiaTransform, "Han entrado a mi casa \n y me han robado mis joyas");
             key++;
             polAnim.SetBool("Speak", false);
         } else if (Input.GetKeyDown(KeyCode.Space) && key == 2)
