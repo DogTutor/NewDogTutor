@@ -87,5 +87,10 @@ public class CameraMovement : MonoBehaviour
             endPosition = new Vector3(20,0,0);
         } 
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
