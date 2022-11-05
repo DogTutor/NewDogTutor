@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class RoomHandler : MonoBehaviour
 {
-    public new Transform camera;
-    [SerializeField] private GameObject introScene;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  public new Transform camera;
+  [SerializeField] private GameObject introScene;
+  public AudioClip musicaLidia;
 
-    // Update is called once per frame
-    void Update()
+  // Start is called before the first frame update
+  void Start()
+  {
+    AudioManager.instance.SwapTrack(musicaLidia);
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (Input.GetKeyDown(KeyCode.Space))
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            camera.GetComponent<CameraMovement>().flagScene = 1;
-            Destroy(introScene);
-        }
+      camera.GetComponent<CameraMovement>().flagScene = 1;
+      Destroy(introScene);
     }
+  }
 }
