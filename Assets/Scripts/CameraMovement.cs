@@ -18,6 +18,7 @@ public class CameraMovement : MonoBehaviour
     public Animator kikiAnim;
     public Animator rolloAnim;
 
+    
     // Start is called before the first frame update
     void Start()
     {
