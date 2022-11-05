@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 40778878}
   m_Layer: 0
   m_Name: InteractablePeluche
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -940,7 +940,7 @@ GameObject:
   - component: {fileID: 324630592}
   m_Layer: 0
   m_Name: InteractableCaja
-  m_TagString: Interactable
+  m_TagString: InteractableFelix
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1615,7 +1615,7 @@ GameObject:
   - component: {fileID: 468279251}
   m_Layer: 0
   m_Name: InteractableLibAb
-  m_TagString: Interactable
+  m_TagString: InteractableFelix
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2261,7 +2261,7 @@ GameObject:
   - component: {fileID: 576185376}
   m_Layer: 0
   m_Name: InteractableBascula
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2307,7 +2307,7 @@ GameObject:
   - component: {fileID: 588164230}
   m_Layer: 0
   m_Name: InteractableChocolatina
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2413,7 +2413,7 @@ GameObject:
   - component: {fileID: 621225970}
   m_Layer: 0
   m_Name: InteractablePizza
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2586,7 +2586,7 @@ GameObject:
   - component: {fileID: 668013484}
   m_Layer: 0
   m_Name: InteractableNavidad
-  m_TagString: Interactable
+  m_TagString: InteractableRollo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3099,7 +3099,7 @@ GameObject:
   - component: {fileID: 734636779}
   m_Layer: 0
   m_Name: InteractableOtraLamp
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3810,7 +3810,7 @@ GameObject:
   - component: {fileID: 822941384}
   m_Layer: 0
   m_Name: InteractablePixarLamp
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3881,7 +3881,7 @@ GameObject:
   - component: {fileID: 833103580}
   m_Layer: 0
   m_Name: InteractableLamp
-  m_TagString: Interactable
+  m_TagString: InteractableRollo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4462,7 +4462,7 @@ GameObject:
   - component: {fileID: 970001165}
   m_Layer: 0
   m_Name: InteractableSombrilla
-  m_TagString: Interactable
+  m_TagString: InteractableFelix
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5020,7 +5020,7 @@ GameObject:
   - component: {fileID: 1121088716}
   m_Layer: 0
   m_Name: InteractableSoda
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5156,7 +5156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01865287b5f98c6baccad165ff72e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1167489989}
+  camera: {fileID: 1167489990}
   introScene: {fileID: 1505576875}
 --- !u!4 &1131879546
 Transform:
@@ -5254,7 +5254,7 @@ GameObject:
   - component: {fileID: 1165411568}
   m_Layer: 0
   m_Name: InteractableRobot
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5745,7 +5745,7 @@ GameObject:
   - component: {fileID: 1277075624}
   m_Layer: 0
   m_Name: InteractableBasura
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5873,7 +5873,7 @@ GameObject:
   - component: {fileID: 1326917028}
   m_Layer: 0
   m_Name: "InteractableJalape\xF1os"
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5982,7 +5982,7 @@ GameObject:
   - component: {fileID: 1404281625}
   m_Layer: 0
   m_Name: InteractableEscoba
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6041,7 +6041,7 @@ GameObject:
   - component: {fileID: 1432968062}
   m_Layer: 0
   m_Name: InteractableTazon
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6318,7 +6318,7 @@ GameObject:
   - component: {fileID: 1480060466}
   m_Layer: 0
   m_Name: InteractableEstanteria
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6361,7 +6361,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1488464135}
-  - component: {fileID: 1488464136}
   m_Layer: 0
   m_Name: CursorController
   m_TagString: Untagged
@@ -6384,22 +6383,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1488464136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488464134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b1b79e520f92aba83b1c01a1a085e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactablesManager: {fileID: 1446177469}
-  interactiveCursorTexture: {fileID: 2800000, guid: ad795bfd77730c62a8ad12a47c56850f, type: 3}
-  newSelectionTransform: {fileID: 0}
-  DistanceThreshold: 15
 --- !u!1 &1505576875
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,7 +6494,7 @@ GameObject:
   - component: {fileID: 1536201270}
   m_Layer: 0
   m_Name: InteractablePlantaSuelo
-  m_TagString: Interactable
+  m_TagString: InteractableFelix
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6813,7 +6796,7 @@ GameObject:
   - component: {fileID: 1613257263}
   m_Layer: 0
   m_Name: InteractableMochila
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7060,7 +7043,7 @@ GameObject:
   - component: {fileID: 1661514020}
   m_Layer: 0
   m_Name: InteractableLinterna
-  m_TagString: Interactable
+  m_TagString: InteractableFelix
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7233,7 +7216,7 @@ GameObject:
   - component: {fileID: 1691208837}
   m_Layer: 0
   m_Name: InteractableAsador
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8133,7 +8116,7 @@ GameObject:
   - component: {fileID: 1896796749}
   m_Layer: 0
   m_Name: InteractableCuelga
-  m_TagString: Interactable
+  m_TagString: InteractableFelix
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8210,7 +8193,7 @@ GameObject:
   - component: {fileID: 1921573897}
   m_Layer: 0
   m_Name: InteractableCerrada
-  m_TagString: Interactable
+  m_TagString: InteractableRollo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8365,7 +8348,7 @@ GameObject:
   - component: {fileID: 2013111420}
   m_Layer: 0
   m_Name: InteractableLibros
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8412,7 +8395,7 @@ GameObject:
   - component: {fileID: 2047499834}
   m_Layer: 0
   m_Name: InteractableDeco
-  m_TagString: Interactable
+  m_TagString: InteractableAdela
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8470,7 +8453,7 @@ GameObject:
   - component: {fileID: 2053914155}
   m_Layer: 0
   m_Name: InteractableGafas
-  m_TagString: Interactable
+  m_TagString: Interactablekiki
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8968,7 +8951,7 @@ GameObject:
   - component: {fileID: 2134187429}
   m_Layer: 0
   m_Name: InteractablePlantas
-  m_TagString: Interactable
+  m_TagString: InteractableRollo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

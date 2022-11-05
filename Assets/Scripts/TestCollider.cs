@@ -26,8 +26,37 @@ public class TestCollider : MonoBehaviour
 
   public GameObject bubbleUi;
   private GameObject bubbleUse;
-  public delegate void ClickAction();
-  //public static event ClickAction OnClickedClock;
+
+  string[] felixMensaje = new string[] {
+    "Esto no es interesante.",
+    "Concéntrate, esto no es una pista",
+    "Esto no será de mucha ayuda.",
+    "Mejor haz sonar la trompeta si no vas a buscar buenas pistas",
+    "Deja ese objeto, no es de utilidad",
+    "Te equivocas, esto no es interesante"
+  };
+  string[] adelaMensaje = new string[] {
+    "Sé astuta, esto no será de ayuda","Dudo que esto sea importante",
+    "No te engañes a ti misma, esto no es interesante",
+    "Concéntrate en tu habilidad,\n piensa como el malhechor",
+    "¡Es imposible que esto sea una pista!","¡Caramba, vaya desorden!"
+  };
+  string[] rolloMensaje = new string[] {
+    "No es posible que esto sea una pista",
+    "No hay nada más aburrido para un detective \n que no encontrar pistas",
+    "¿Qué te hace pensar que será una pista interesante?",
+    "Este tipo de objetos es lo que tenemos \n que evitar al investigar",
+    "Mejor será que nos concentremos",
+    "No hay ninguna huella aquí"
+  };
+  string[] kikiMensaje = new string[] {
+    "Ardilla, ¿en serio crees que esto pueda ser de utilidad?",
+    "concéntrate y ayúdame ardilla",
+    "Me estás distrayendo ardilla, esto no es interesante",
+    "La importancia de este objeto en el caso \n es tan pequeña como mi ardilla",
+    "Esto es realmente insignificante para nosotros",
+    "Será mejor que nos concentremos"
+  };
 
   // Start is called before the first frame update
   void Start()
@@ -91,11 +120,21 @@ public class TestCollider : MonoBehaviour
           bubble(lidiaTransform, "Pueden comer de los bombones de chocolate \n como agradecimiento");
           Destroy(hitInfo.transform.gameObject);
         }
-        if (hitInfo.transform.gameObject.tag == "Interactable")
+
+        switch (hitInfo.transform.gameObject.tag)
         {
-          Destroy(bubbleUse);
-          randomMessagge();
-          //Destroy(hitInfo.transform.gameObject);
+          case "InteractableFelix":
+            randomMessagge(felixTransform, felixMensaje);
+            break;
+          case "InteractableAdela":
+            randomMessagge(adelaTransform, adelaMensaje);
+            break;
+          case "InteractableRollo":
+            randomMessagge(rolloTransform, rolloMensaje);
+            break;
+          case "Interactablekiki":
+            randomMessagge(kikiTransform, kikiMensaje);
+            break;
         }
       }
     }
@@ -114,45 +153,56 @@ public class TestCollider : MonoBehaviour
     Destroy(bubbleUse.gameObject, 6f);
   }
 
-  private void randomMessagge(){
+  private void randomMessagge(Transform personaje, string[] mensaje)
+  {
+    Destroy(bubbleUse);
+    string randomBubble = mensaje[Random.Range(0, mensaje.Length)];
+    bubble(personaje, randomBubble);
+  }
+  private void randomMessagge()
+  {
+    Destroy(bubbleUse);
     Transform felixT = felixTransform;
     string[] felixMensaje = new string[] {
       "Esto no es interesante.",
       "Concéntrate, esto no es una pista",
       "Esto no será de mucha ayuda.",
-      "Mejor haz sonar trompeta si no vas a buscar buenas pistas",
+      "Mejor haz sonar la trompeta si no vas a buscar buenas pistas",
       "Deja ese objeto, no es de utilidad",
       "Te equivocas, esto no es interesante"};
     string randomFelix = felixMensaje[Random.Range(0, felixMensaje.Length)];
     bubble(felixT, randomFelix);
 
+    Destroy(bubbleUse);
     Transform adelaT = adelaTransform;
     string[] adelaMensaje = new string[] {
       "Sé astuta, esto no será de ayuda","Dudo que esto sea importante",
-      "No te engañes a ti misma, esto no es interesante", 
+      "No te engañes a ti misma, esto no es interesante",
       "Concéntrate en tu habilidad,\n piensa como el malhechor",
       "¡Es imposible que esto sea una pista!","¡Caramba, vaya desorden!"};
     string randomAdela = adelaMensaje[Random.Range(0, adelaMensaje.Length)];
     bubble(adelaT, randomAdela);
 
+    Destroy(bubbleUse);
     Transform rolloT = rolloTransform;
     string[] rolloMensaje = new string[] {
       "No es posible que esto sea una pista",
       "No hay nada más aburrido para un detective \n que no encontrar pistas",
-      "¿Qué te hace pensar que será una pista interesante?", 
+      "¿Qué te hace pensar que será una pista interesante?",
       "Este tipo de objetos es lo que tenemos \n que evitar al investigar",
       "Mejor será que nos concentremos",
       "No hay ninguna huella aquí"};
     string randomRollo = rolloMensaje[Random.Range(0, rolloMensaje.Length)];
     bubble(rolloT, randomRollo);
 
+    Destroy(bubbleUse);
     Transform kikiT = kikiTransform;
     string[] kikiMensaje = new string[] {
-      "Ardilla, ¿en serio crees que esto pueda ser de utilidad?", 
+      "Ardilla, ¿en serio crees que esto pueda ser de utilidad?",
       "concéntrate y ayúdame ardilla",
       "Me estás distrayendo ardilla, esto no es interesante",
       "La importancia de este objeto en el caso \n es tan pequeña como mi ardilla",
-      "Esto es realmente insignificante para nosotros", 
+      "Esto es realmente insignificante para nosotros",
       "Será mejor que nos concentremos"};
     string randomKiki = kikiMensaje[Random.Range(0, kikiMensaje.Length)];
     bubble(kikiT, randomKiki);
