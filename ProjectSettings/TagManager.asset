@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Construction
-  - Interactable
+  - InteractableFelix
+  - InteractableAdela
+  - InteractableRollo
+  - Interactablekiki
   layers:
   - Default
   - TransparentFX
