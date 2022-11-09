@@ -11,7 +11,7 @@ public class ChatBubble : MonoBehaviour
     {
         Transform chatBubbleTransform = Instantiate(GameAssets.i.pfChatBubble, FindObjectOfType<Canvas>().transform);
         //chatBubbleTransform.localPosition = localPosition;
-
+        chatBubbleTransform.SetAsFirstSibling();
         chatBubbleTransform.GetComponent<ChatBubble>().Setup(text);
     }
 

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af1229f3aada6cf39fb0604fb8abdf3, type: 3}
+  m_Name: Ventana
+  m_EditorClassIdentifier: 
+  name: Ventana
+  description: "Este podr\xEDa ser un trabajo para Ardillita, seria de gran ayuda
+    investigar."
+  icon: {fileID: 21300000, guid: e22cea2e3c61d81b2b149774074dc94f, type: 3}

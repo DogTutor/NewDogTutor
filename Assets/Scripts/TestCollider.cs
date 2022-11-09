@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.EventSystems;
 
 public class TestCollider : MonoBehaviour
 {
+  public Item reloj, periodico, roto, ventana, boleta;
+  public GameObject inventario, confetti;
   [SerializeField]
   private PlayableDirector ardillaTime;
   [SerializeField]
@@ -67,7 +68,7 @@ public class TestCollider : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetMouseButtonDown(0))
+    if (Input.GetMouseButtonDown(0) && !inventario.activeSelf)
     {
       RaycastHit hitInfo = new RaycastHit();
       bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
@@ -76,35 +77,46 @@ public class TestCollider : MonoBehaviour
         // Pistas
         if (hitInfo.transform.gameObject.name == "InteractableClock" && relojFlag == 0)
         {
+          Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(adelaTransform, "Un reloj caído detenido 5 minutos después de media noche");
           relojFlag = 1;
+          //Debug.Log("Recogió " + reloj.name);
+          Inventory.instance.Add(reloj);
         }
         if (hitInfo.transform.gameObject.name == "InteractableNews" && periodicoFlag == 0)
         {
+          Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(felixTransform, "Un periódico con la cartelera de cine, puede ser de ayuda");
           periodicoFlag = 1;
+          Inventory.instance.Add(periodico);
         }
         if (hitInfo.transform.gameObject.name == "InteractableBroke" && brokeFlag == 0)
         {
+          Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(rolloTransform, "El ladrón escapó por la ventana, pero, \n ¿Cómo lo alcanzamos?");
           brokeFlag = 1;
+          Inventory.instance.Add(roto);
         }
         if (hitInfo.transform.gameObject.name == "InteractableWindow"
            && windowFlag == 0 && brokeFlag == 1)
         {
+          Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(kikiTransform, "¿Quién sería lo suficientemente pequeño para subir por ahí?");
           windowFlag = 1;
+          Inventory.instance.Add(ventana);
         }
         if (hitInfo.transform.gameObject.name == "InteractableArdilla" && ardillaFlag == 0
            && windowFlag == 1 && brokeFlag == 1 && periodicoFlag == 1)
         {
+          Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(kikiTransform, "¡Claro!, ardilla sube y mira que encuentras");
           ardillaFlag = 1;
+          Inventory.instance.Add(boleta);
           director.PlayCinematic(ardillaTime);
         }
         // Interactuables
@@ -149,6 +161,7 @@ public class TestCollider : MonoBehaviour
   {
     bubbleUse = Instantiate(bubbleUi, FindObjectOfType<Canvas>().transform);
     bubbleUse.transform.position = Camera.main.WorldToScreenPoint(charTransform.position + localPosition);
+    bubbleUse.transform.SetAsFirstSibling();
     bubbleUse.GetComponent<ChatBubble>().Setup(text);
     Destroy(bubbleUse.gameObject, 6f);
   }
