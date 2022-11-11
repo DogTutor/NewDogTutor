@@ -96,7 +96,7 @@ public class TestCollider : MonoBehaviour
         {
           Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
-          bubble(rolloTransform, "El ladrón escapó por la ventana, pero, \n ¿Cómo lo alcanzamos?");
+          bubble(rolloTransform, "El ladrón entró por la ventana, pero, \n hay muchos vidrios rotos");
           brokeFlag = 1;
           Inventory.instance.Add(roto);
         }
