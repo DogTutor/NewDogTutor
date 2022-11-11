@@ -62,6 +62,7 @@ public class ComisariaHandler : MonoBehaviour
     {
         bubbleUse = Instantiate(bubbleUi, FindObjectOfType<Canvas>().transform);
         bubbleUse.transform.position = Camera.main.WorldToScreenPoint(charTransform.position+localPosition);
+        bubbleUse.transform.SetAsFirstSibling();
         bubbleUse.GetComponent<ChatBubble>().Setup(text);
     }
 }

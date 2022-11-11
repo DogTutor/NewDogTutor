@@ -116,6 +116,10 @@ public class AudioManager : MonoBehaviour
     {
       track2.clip = newClip;
       track2.Play();
+      if (track1.mute)
+      {
+        track2.mute = true;
+      }
       while (timeElapsed < timeToFade)
       {
         track2.volume = Mathf.Lerp(0, 0.5f, timeElapsed / timeToFade);
@@ -129,6 +133,10 @@ public class AudioManager : MonoBehaviour
     {
       track1.clip = newClip;
       track1.Play();
+      if (track2.mute)
+      {
+        track1.mute = true;
+      }
       while (timeElapsed < timeToFade)
       {
         track1.volume = Mathf.Lerp(0, 0.5f, timeElapsed / timeToFade);
