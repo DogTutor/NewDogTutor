@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
   public AudioClip musicaComisaria;
   private AudioSource track1, track2;
-  private bool isPlayingTrack1;
+  private bool isPlayingTrack1, isOn;
   public static AudioManager instance;
+  public Image icon;
+  public Sprite mutedIcon, soundIcon;
   private void Awake()
   {
     if (instance == null)
@@ -23,6 +26,8 @@ public class AudioManager : MonoBehaviour
     track1.loop = true;
     track2.loop = true;
     isPlayingTrack1 = true;
+    isOn = true;
+    icon.sprite = soundIcon;
 
     SwapTrack(musicaComisaria);
   }
@@ -34,6 +39,75 @@ public class AudioManager : MonoBehaviour
 
     isPlayingTrack1 = !isPlayingTrack1;
   }
+  public void MuteTrack()
+  {
+    StopAllCoroutines();
+    if (isOn)
+    {
+      StartCoroutine(FadeMuteTrack());
+      icon.sprite = mutedIcon;
+
+    }
+    else
+    {
+      StartCoroutine(FadeUnmuteTrack());
+      icon.sprite = soundIcon;
+    }
+  }
+  private IEnumerator FadeMuteTrack()
+  {
+    float timeToFade = 0.5f;
+    float timeElapsed = 0;
+    if (isPlayingTrack1)
+    {
+      while (timeElapsed < timeToFade)
+      {
+        track1.volume = Mathf.Lerp(0.5f, 0, timeElapsed / timeToFade);
+        timeElapsed += Time.deltaTime;
+        yield return null;
+      }
+      isOn = false;
+      track1.mute = true;
+    }
+    else
+    {
+      while (timeElapsed < timeToFade)
+      {
+        track2.volume = Mathf.Lerp(0.5f, 0, timeElapsed / timeToFade);
+        timeElapsed += Time.deltaTime;
+        yield return null;
+      }
+      isOn = false;
+      track2.mute = true;
+    }
+  }
+  private IEnumerator FadeUnmuteTrack()
+  {
+    float timeToFade = 0.5f;
+    float timeElapsed = 0;
+    if (isPlayingTrack1)
+    {
+      track1.mute = false;
+      while (timeElapsed < timeToFade)
+      {
+        track1.volume = Mathf.Lerp(0, 0.5f, timeElapsed / timeToFade);
+        timeElapsed += Time.deltaTime;
+        yield return null;
+      }
+      isOn = true;
+    }
+    else
+    {
+      track2.mute = false;
+      while (timeElapsed < timeToFade)
+      {
+        track2.volume = Mathf.Lerp(0, 0.5f, timeElapsed / timeToFade);
+        timeElapsed += Time.deltaTime;
+        yield return null;
+      }
+      isOn = true;
+    }
+  }
   private IEnumerator FadeTrack(AudioClip newClip)
   {
     float timeToFade = 1.25f;
@@ -44,8 +118,8 @@ public class AudioManager : MonoBehaviour
       track2.Play();
       while (timeElapsed < timeToFade)
       {
-        track2.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-        track1.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+        track2.volume = Mathf.Lerp(0, 0.5f, timeElapsed / timeToFade);
+        track1.volume = Mathf.Lerp(0.5f, 0, timeElapsed / timeToFade);
         timeElapsed += Time.deltaTime;
         yield return null;
       }
@@ -57,8 +131,8 @@ public class AudioManager : MonoBehaviour
       track1.Play();
       while (timeElapsed < timeToFade)
       {
-        track1.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-        track2.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+        track1.volume = Mathf.Lerp(0, 0.5f, timeElapsed / timeToFade);
+        track2.volume = Mathf.Lerp(0.5f, 0, timeElapsed / timeToFade);
         timeElapsed += Time.deltaTime;
         yield return null;
       }
