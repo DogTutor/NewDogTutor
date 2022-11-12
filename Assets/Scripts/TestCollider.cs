@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class TestCollider : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TestCollider : MonoBehaviour
   private AudioSource positivo, negativo;
   public AudioClip positivoClip, negativoClip;
   public Slider volumeSlider;
+  public TextMeshProUGUI textoFinal;
 
   [SerializeField]
   private PlayableDirector ardillaTime;
@@ -21,7 +23,7 @@ public class TestCollider : MonoBehaviour
   private float windowFlag = 0;
   private float ardillaFlag = 0;
   private float periodicoFlag = 0;
-
+  public float dogg = 0;
 
   [SerializeField] private Transform lidiaTransform;
   [SerializeField] public Transform adelaTransform;
@@ -154,6 +156,14 @@ public class TestCollider : MonoBehaviour
           Destroy(hitInfo.transform.gameObject);
         }
 
+        if (hitInfo.transform.gameObject.tag == "Collect")
+        {
+          positivo.Play();
+          Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
+          Destroy(hitInfo.transform.gameObject);
+          dogg++;
+        }
+
         switch (hitInfo.transform.gameObject.tag)
         {
           case "InteractableFelix":
@@ -179,6 +189,15 @@ public class TestCollider : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
     {
       Destroy(bubbleUse);
+    }
+
+    if (dogg > 3)
+    {
+      textoFinal.text = "¡Increíble!, has demostrado ser un gran detective utilizado tus habilidades inferenciales ayudando a encontrar las pistas suficientes para descubrir el paradero del ladrón de joyas y también todos los coleccionables del escenario";
+    }
+    else
+    {
+      textoFinal.text = "¡Felicidades!, has utilizado tus habilidades inferenciales ayudando a encontrar las pistas suficientes para descubrir el paradero del ladrón de joyas";
     }
   }
 

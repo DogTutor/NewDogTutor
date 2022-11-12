@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArdManager : MonoBehaviour
 {
+  public new Transform camera;
   public GameObject bubbleUi;
   private GameObject bubbleUse;
 
@@ -13,6 +14,7 @@ public class ArdManager : MonoBehaviour
   void Start()
   {
     bubble(kikiTransform, "Una boleta para una pelicula, el sospechoso debe estar en el cine");
+    camera.GetComponent<CameraMovement>().flagScene = 2;
   }
 
   // Update is called once per frame

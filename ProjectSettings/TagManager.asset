@@ -10,11 +10,12 @@ TagManager:
   - InteractableRollo
   - Interactablekiki
   - Speed
+  - Collect
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Pistas
   - Water
   - UI
   - 
