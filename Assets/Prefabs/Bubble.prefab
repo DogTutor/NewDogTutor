@@ -199,8 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d8d7d203bae8dbb96119c0c91d8955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canva: {fileID: 0}
+  slider: {fileID: 0}
+  speedSlider: {fileID: 0}
   delayBeforeStart: 0
-  timeBtwChars: 0.06
+  timeBtwChars: 0.05
   leadingChar: 
   leadingCharBeforeDelay: 0
 --- !u!1 &2549401914875521355
@@ -238,8 +241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -10.531}
-  m_SizeDelta: {x: 100, y: 30}
+  m_AnchoredPosition: {x: -50, y: -13.1}
+  m_SizeDelta: {x: 100, y: 32.887}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2549401914875521352
 CanvasRenderer:
@@ -269,7 +272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d2f68571dab936f34b44e58560aa311e, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

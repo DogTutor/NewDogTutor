@@ -3,7 +3,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
   public Transform itemsParent, referenciaParent;
-  public GameObject inventoryUI;
+  public GameObject inventoryUI, menuUI;
   Inventory inventory;
   ItemInformation information;
   InventorySlot[] slots;
@@ -32,6 +32,10 @@ public class InventoryUI : MonoBehaviour
 
   public void ActivateInventory()
   {
+    if (menuUI.activeSelf)
+    {
+      menuUI.SetActive(!menuUI.activeSelf);
+    }
     inventoryUI.SetActive(!inventoryUI.activeSelf);
   }
 
