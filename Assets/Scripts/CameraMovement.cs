@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CameraMovement : MonoBehaviour
 {
+  public TextMeshProUGUI timeText;
   private Vector3 endPosition;
   private Vector3 startPosition;
   private float desiredDuration = 5f;
-  private float elapsedTime;
+  private float elapsedTime, timer;
 
   [SerializeField]
   private AnimationCurve curve;
@@ -32,6 +34,9 @@ public class CameraMovement : MonoBehaviour
 
     if (flagScene == 1)
     {
+      timer += Time.deltaTime;
+
+
       lidAnim.SetBool("House", true);
       adelAnim.SetBool("House", true);
       felAnim.SetBool("House", true);
@@ -92,6 +97,9 @@ public class CameraMovement : MonoBehaviour
         endPosition = new Vector3(20, 0, 0);
       }
     }
+    int minutes = Mathf.FloorToInt(timer / 60F);
+    int seconds = Mathf.FloorToInt(timer % 60F);
+    timeText.text = "Tiempo empleado \n" + minutes.ToString("00") + ":" + seconds.ToString("00");
 
     if (Input.GetKeyDown(KeyCode.Escape))
     {
