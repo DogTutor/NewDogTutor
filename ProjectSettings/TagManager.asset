@@ -9,6 +9,7 @@ TagManager:
   - InteractableAdela
   - InteractableRollo
   - Interactablekiki
+  - Speed
   layers:
   - Default
   - TransparentFX

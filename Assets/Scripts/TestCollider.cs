@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TestCollider : MonoBehaviour
 {
   public Item reloj, periodico, roto, ventana, boleta;
-  public GameObject inventario, confetti;
+  public GameObject inventario, confetti, menuUI;
+  private AudioSource positivo, negativo;
+  public AudioClip positivoClip, negativoClip;
+  public Slider volumeSlider;
+
   [SerializeField]
   private PlayableDirector ardillaTime;
   [SerializeField]
@@ -62,13 +67,22 @@ public class TestCollider : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    positivo = gameObject.AddComponent<AudioSource>();
+    negativo = gameObject.AddComponent<AudioSource>();
+    positivo.clip = positivoClip;
+    negativo.clip = negativoClip;
 
+    volumeSlider.onValueChanged.AddListener((v) =>
+    {
+      positivo.volume = v;
+      negativo.volume = v;
+    });
   }
 
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetMouseButtonDown(0) && !inventario.activeSelf)
+    if (Input.GetMouseButtonDown(0) && !inventario.activeSelf && !menuUI.activeSelf)
     {
       RaycastHit hitInfo = new RaycastHit();
       bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
@@ -77,6 +91,7 @@ public class TestCollider : MonoBehaviour
         // Pistas
         if (hitInfo.transform.gameObject.name == "InteractableClock" && relojFlag == 0)
         {
+          positivo.Play();
           Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(adelaTransform, "Un reloj caído detenido 5 minutos después de media noche");
@@ -86,6 +101,7 @@ public class TestCollider : MonoBehaviour
         }
         if (hitInfo.transform.gameObject.name == "InteractableNews" && periodicoFlag == 0)
         {
+          positivo.Play();
           Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(felixTransform, "Un periódico con la cartelera de cine, puede ser de ayuda");
@@ -94,6 +110,7 @@ public class TestCollider : MonoBehaviour
         }
         if (hitInfo.transform.gameObject.name == "InteractableBroke" && brokeFlag == 0)
         {
+          positivo.Play();
           Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(rolloTransform, "El ladrón entró por la ventana, pero, \n hay muchos vidrios rotos");
@@ -103,6 +120,7 @@ public class TestCollider : MonoBehaviour
         if (hitInfo.transform.gameObject.name == "InteractableWindow"
            && windowFlag == 0 && brokeFlag == 1)
         {
+          positivo.Play();
           Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(kikiTransform, "¿Quién sería lo suficientemente pequeño para subir por ahí?");
@@ -112,6 +130,7 @@ public class TestCollider : MonoBehaviour
         if (hitInfo.transform.gameObject.name == "InteractableArdilla" && ardillaFlag == 0
            && windowFlag == 1 && brokeFlag == 1 && periodicoFlag == 1)
         {
+          positivo.Play();
           Instantiate(confetti, hitInfo.transform.position, Quaternion.identity);
           Destroy(bubbleUse);
           bubble(kikiTransform, "¡Claro!, ardilla sube y mira que encuentras");
@@ -122,12 +141,14 @@ public class TestCollider : MonoBehaviour
         // Interactuables
         if (hitInfo.transform.gameObject.name == "InteractableSafe")
         {
+          negativo.Play();
           Destroy(bubbleUse);
           bubble(kikiTransform, "La caja fuerte está intacta");
           Destroy(hitInfo.transform.gameObject);
         }
         if (hitInfo.transform.gameObject.name == "InteractableChocolate")
         {
+          negativo.Play();
           Destroy(bubbleUse);
           bubble(lidiaTransform, "Pueden comer de los bombones de chocolate \n como agradecimiento");
           Destroy(hitInfo.transform.gameObject);
@@ -137,14 +158,18 @@ public class TestCollider : MonoBehaviour
         {
           case "InteractableFelix":
             randomMessagge(felixTransform, felixMensaje);
+            negativo.Play();
             break;
           case "InteractableAdela":
             randomMessagge(adelaTransform, adelaMensaje);
+            negativo.Play();
             break;
           case "InteractableRollo":
             randomMessagge(rolloTransform, rolloMensaje);
+            negativo.Play();
             break;
           case "Interactablekiki":
+            negativo.Play();
             randomMessagge(kikiTransform, kikiMensaje);
             break;
         }
@@ -171,5 +196,10 @@ public class TestCollider : MonoBehaviour
     Destroy(bubbleUse);
     string randomBubble = mensaje[Random.Range(0, mensaje.Length)];
     bubble(personaje, randomBubble);
+  }
+  public void muteFX()
+  {
+    positivo.mute = !positivo.mute;
+    negativo.mute = !negativo.mute;
   }
 }
